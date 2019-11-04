@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Search Image Engine AIM</title>
+
+  </head>
+  <body id="main">
+<style>
+  body {
+  background-image: url('http://getwallpapers.com/wallpaper/full/4/6/5/73803.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+    <div class="container">
+      <div class="row">
+        <br><br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <h1>Enter the image to search :</h1>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+      <div class="row">
+        <br><br>
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+        <form method="POST" enctype="multipart/form-data">
+        <div class="input-group">
+            <input type="file" name="query_img" class="form-control">
+            <span class="input-group-btn"><button type="submit" class="btn btn-primary">Submit</button></span>
+        </div>
+        </form>
+    </div></div>
+          <br><br>
+          <div class="row">
+          {% if query_path %}
+                <div class="col-lg-8">
+                    <h2>Given image :</h2>
+                </div>
+                <div class="col-lg-8" >
+                    <img style="width: 20% !important;
+    margin: 2% 4%;
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" id="img" src="{{ query_path }}" width="40%" alt="Query">
+                </div>
+          {% endif %}
+        </div>
+        {% if answers %}
+        <hr>
+                <div class="col-lg-8">
+                    <h2>Similar images :</h2>
+                </div>
+                <br><br>
+                <div class="row">
+                    {% for answer in answers %}
+                    <div class="col">
+                        <img id="img"  style="width: 13% !important;
+    margin: 2% 4%;
+    float: left;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" src="{{ answer[0] }}" width="40%" alt="{{ answer[1] }}">
+                    </div>
+                    {% endfor %}
+                 </div>
+        {% endif %}
+    
+        <div class="col-lg-2"></div>
+    </div>
+    <div class="col-lg-2"></div>
+    <div class="col-lg-2"></div>
+    <hr><br><br>
+    <footer style="width: 100%; bottom: 30;"><center> <b>2019/2020</b> </center></footer>
+  </body>
+</html>
